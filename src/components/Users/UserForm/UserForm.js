@@ -24,11 +24,11 @@ const UserForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     if (!isNameValid) {
-      alert("Name not valid");
+      props.Error("Name not valid");
       return;
     }
     if (!isAgeValid) {
-      alert("Age not valid");
+      props.Error("Age not valid");
       return;
     }
     console.log("submit", age, name);
@@ -39,11 +39,12 @@ const UserForm = (props) => {
   return (
     <div>
       <form className="form-control" onSubmit={submitHandler}>
-        <label>Name</label>
-        <input type="text" value={name} onChange={nameChangeHandler}></input>
+        <label htmlFor="name">Name</label>
+        <input id="name" type="text" value={name} onChange={nameChangeHandler}></input>
         <label>Age</label>
-        <input type="number" value={age} onChange={ageChengeHandler}></input>
-        <input type="submit"></input>
+        <input htmlFor="age" type="number" value={age} onChange={ageChengeHandler}></input>
+        <br></br>
+        <input id="age" style={{backgroundColor:"gray"}} type="submit"></input>
       </form>
     </div>
   );

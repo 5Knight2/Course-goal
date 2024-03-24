@@ -3,10 +3,18 @@ import React, { useState } from 'react';
 import UserList from './components/Users/UserList/UserList';
 import UserForm from './components/Users/UserForm/UserForm';
 import './App.css';
+import ErrorModal from './components/UI/ErrorModal/ErrorModal';
 
 const App = () => {
+  
 
 const [user,setUser]=useState([{name:"Pratik",age:25,id:1}])
+const [modal,setModal]=useState(<></>)
+
+const modalHandler=()=>{
+  console.log('handled')
+  setModal(<></>)
+}
 
 const addUserHandler=(obj)=>{
   setUser((prevUser)=>{
@@ -18,11 +26,16 @@ const addUserHandler=(obj)=>{
 
   })
 }
+const errorHandler=(msg)=>{
+  console.log('oh')
+  setModal(<ErrorModal message={msg} modalHandler={modalHandler} ></ErrorModal>)
+}
 
   return (
     <div>
+      {modal}
       <section id="user-form">
-        <UserForm addUser={addUserHandler}/>
+        <UserForm addUser={addUserHandler} Error={errorHandler}/>
       </section>
       <section id="users">
        <UserList items={user}></UserList>
