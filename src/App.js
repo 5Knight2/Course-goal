@@ -27,7 +27,7 @@ const addUserHandler=(obj)=>{
   })
 }
 const errorHandler=(msg)=>{
-  console.log('oh')
+
   setModal(<ErrorModal message={msg} modalHandler={modalHandler} ></ErrorModal>)
 }
 
