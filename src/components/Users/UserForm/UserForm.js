@@ -37,7 +37,7 @@ const UserForm = (props) => {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <form className="form-control" onSubmit={submitHandler}>
         <label htmlFor="name">Name</label>
         <input id="name" type="text" value={name} onChange={nameChangeHandler}></input>
@@ -46,7 +46,7 @@ const UserForm = (props) => {
         <br></br>
         <input id="age" style={{backgroundColor:"gray"}} type="submit"></input>
       </form>
-    </div>
+    </React.Fragment>
   );
 };
 

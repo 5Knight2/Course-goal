@@ -32,7 +32,7 @@ const errorHandler=(msg)=>{
 }
 
   return (
-    <div>
+    <React.Fragment>
       {modal}
       <section id="user-form">
         <UserForm addUser={addUserHandler} Error={errorHandler}/>
@@ -41,7 +41,7 @@ const errorHandler=(msg)=>{
        <UserList items={user}></UserList>
         
       </section>
-    </div>
+    </React.Fragment>
   );
 };
 
